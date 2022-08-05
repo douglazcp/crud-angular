@@ -1,0 +1,28 @@
+<div>
+  <div style="border-radius:5px;margin:10px 0 10px 0;background-color:#f1f1f1;padding:1px">
+    <h4>Incluir tipo de objeto</h4>
+  </div>
+	<div>
+
+    <section class="container row">
+      <section class="container flex-start column">
+        <div class="item"><label for="tipo"><span style="color: red;">*</span>Tipo Item:</label></div>
+        <div class="item"><select class="select" [(ngModel)]="tipoItem.tipo">
+          <option>Documento</option>
+          <option>Outros</option>
+        </select></div>
+      </section>
+      <section class="container flex-start column">
+        <div class="item"><label for="descricao"><span style="color: red;">*</span>Descrição</label></div>
+        <div class="item"><input class="input" id="descricao" required [(ngModel)]="tipoItem.descricao" name="descricao" /></div>
+      </section>
+    </section>
+    <section class="container flex-end column">
+      <section class="container row">
+         <div class="item"> <button routerLink="/tipoItemList" class="btn btn-success"><i class="fa fa-remove"></i> Cancelar</button></div>
+         <div class="item"> <button (click)="clearTipoItem()" class="btn btn-success"><i class="fa fa-refresh"></i>Limpar</button></div>
+         <div class="item"> <button (click)="saveTipoItem()" class="btn btn-success"><i class="fa fa-check"></i>Salvar</button></div>
+      </section>
+    </section>
+	</div>
+</div>

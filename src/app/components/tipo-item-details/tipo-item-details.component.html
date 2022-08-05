@@ -1,0 +1,51 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTipoItem.id">
+    <h4>Tipo Item</h4>
+    <div>
+      <label><strong>Descrição:</strong></label>
+      {{ currentTipoItem.descricao }}
+    </div>
+    <a
+      class="badge badge-warning"
+      routerLink="/tipoItems/{{ currentTipoItem.id }}"
+    >
+      Edit
+    </a>
+  </div>
+  <div *ngIf="!currentTipoItem">
+    <br />
+    <p>Selecione um tipo item...</p>
+  </div>
+</div>
+<ng-template #editable>
+  <div *ngIf="currentTipoItem.id" class="edit-form">
+    <h4>Tipo Item</h4>
+    <form>
+      <div class="form-group">
+        <label for="description">Descrição</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTipoItem.descricao"
+          name="description"
+        />
+      </div>
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteTipoItem()">
+      Apagar
+    </button>
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTipoItem()"
+    >
+      Atualizar
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentTipoItem.id">
+    <br />
+    <p>Tipo Item não encontrado...</p>
+  </div>
+</ng-template>
